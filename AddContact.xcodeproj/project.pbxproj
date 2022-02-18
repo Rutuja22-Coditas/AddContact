@@ -13,6 +13,17 @@
 		7E23D63F27B8F3FF0067DB84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E23D63D27B8F3FF0067DB84 /* Main.storyboard */; };
 		7E23D64127B8F4000067DB84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E23D64027B8F4000067DB84 /* Assets.xcassets */; };
 		7E23D64427B8F4000067DB84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E23D64227B8F4000067DB84 /* LaunchScreen.storyboard */; };
+		7E23D65127B8FBEE0067DB84 /* TxtFTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E23D65027B8FBEE0067DB84 /* TxtFTableViewCell.swift */; };
+		7E23D65527B8FE630067DB84 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E23D65327B8FE630067DB84 /* AddTableViewCell.swift */; };
+		7E23D65627B8FE630067DB84 /* AddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E23D65427B8FE630067DB84 /* AddTableViewCell.xib */; };
+		7E3C976927BE673D0044F756 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C976827BE673D0044F756 /* CountryViewController.swift */; };
+		7EA89C0827BB5974000127E5 /* AddPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA89C0727BB5974000127E5 /* AddPhoneViewController.swift */; };
+		7EA973D727BF89170081BE82 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA973D627BF89170081BE82 /* CountryTableViewCell.swift */; };
+		7EB3E02027BA469A00744E7C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB3E01F27BA469900744E7C /* Data.swift */; };
+		7EB3E02427BA91F300744E7C /* AddPhoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB3E02227BA91F300744E7C /* AddPhoneTableViewCell.swift */; };
+		7EB3E02527BA91F300744E7C /* AddPhoneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB3E02327BA91F300744E7C /* AddPhoneTableViewCell.xib */; };
+		7EB6484027BDA75F00363978 /* AddAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6483E27BDA75F00363978 /* AddAddressTableViewCell.swift */; };
+		7EB6484127BDA75F00363978 /* AddAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB6483F27BDA75F00363978 /* AddAddressTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +35,17 @@
 		7E23D64027B8F4000067DB84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E23D64327B8F4000067DB84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E23D64527B8F4000067DB84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E23D65027B8FBEE0067DB84 /* TxtFTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxtFTableViewCell.swift; sourceTree = "<group>"; };
+		7E23D65327B8FE630067DB84 /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
+		7E23D65427B8FE630067DB84 /* AddTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTableViewCell.xib; sourceTree = "<group>"; };
+		7E3C976827BE673D0044F756 /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
+		7EA89C0727BB5974000127E5 /* AddPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhoneViewController.swift; sourceTree = "<group>"; };
+		7EA973D627BF89170081BE82 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
+		7EB3E01F27BA469900744E7C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		7EB3E02227BA91F300744E7C /* AddPhoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhoneTableViewCell.swift; sourceTree = "<group>"; };
+		7EB3E02327BA91F300744E7C /* AddPhoneTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhoneTableViewCell.xib; sourceTree = "<group>"; };
+		7EB6483E27BDA75F00363978 /* AddAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressTableViewCell.swift; sourceTree = "<group>"; };
+		7EB6483F27BDA75F00363978 /* AddAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAddressTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +81,21 @@
 				7E23D63727B8F3FF0067DB84 /* AppDelegate.swift */,
 				7E23D63927B8F3FF0067DB84 /* SceneDelegate.swift */,
 				7E23D63B27B8F3FF0067DB84 /* ViewController.swift */,
+				7EA89C0727BB5974000127E5 /* AddPhoneViewController.swift */,
+				7E3C976827BE673D0044F756 /* CountryViewController.swift */,
 				7E23D63D27B8F3FF0067DB84 /* Main.storyboard */,
 				7E23D64027B8F4000067DB84 /* Assets.xcassets */,
 				7E23D64227B8F4000067DB84 /* LaunchScreen.storyboard */,
 				7E23D64527B8F4000067DB84 /* Info.plist */,
+				7E23D65027B8FBEE0067DB84 /* TxtFTableViewCell.swift */,
+				7E23D65327B8FE630067DB84 /* AddTableViewCell.swift */,
+				7E23D65427B8FE630067DB84 /* AddTableViewCell.xib */,
+				7EB3E01F27BA469900744E7C /* Data.swift */,
+				7EB3E02227BA91F300744E7C /* AddPhoneTableViewCell.swift */,
+				7EB3E02327BA91F300744E7C /* AddPhoneTableViewCell.xib */,
+				7EB6483E27BDA75F00363978 /* AddAddressTableViewCell.swift */,
+				7EB6483F27BDA75F00363978 /* AddAddressTableViewCell.xib */,
+				7EA973D627BF89170081BE82 /* CountryTableViewCell.swift */,
 			);
 			path = AddContact;
 			sourceTree = "<group>";
@@ -125,8 +158,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E23D64427B8F4000067DB84 /* LaunchScreen.storyboard in Resources */,
+				7E23D65627B8FE630067DB84 /* AddTableViewCell.xib in Resources */,
 				7E23D64127B8F4000067DB84 /* Assets.xcassets in Resources */,
 				7E23D63F27B8F3FF0067DB84 /* Main.storyboard in Resources */,
+				7EB6484127BDA75F00363978 /* AddAddressTableViewCell.xib in Resources */,
+				7EB3E02527BA91F300744E7C /* AddPhoneTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,9 +173,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E23D65527B8FE630067DB84 /* AddTableViewCell.swift in Sources */,
+				7EA89C0827BB5974000127E5 /* AddPhoneViewController.swift in Sources */,
+				7EB3E02027BA469A00744E7C /* Data.swift in Sources */,
+				7EA973D727BF89170081BE82 /* CountryTableViewCell.swift in Sources */,
+				7E3C976927BE673D0044F756 /* CountryViewController.swift in Sources */,
 				7E23D63C27B8F3FF0067DB84 /* ViewController.swift in Sources */,
 				7E23D63827B8F3FF0067DB84 /* AppDelegate.swift in Sources */,
+				7EB6484027BDA75F00363978 /* AddAddressTableViewCell.swift in Sources */,
+				7EB3E02427BA91F300744E7C /* AddPhoneTableViewCell.swift in Sources */,
 				7E23D63A27B8F3FF0067DB84 /* SceneDelegate.swift in Sources */,
+				7E23D65127B8FBEE0067DB84 /* TxtFTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
