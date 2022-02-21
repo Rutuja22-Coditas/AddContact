@@ -26,13 +26,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var headingLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneButtn: UIBarButtonItem!
-   
+    @IBOutlet weak var headerViewS1: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
         
+        tableView.isEditing = true
+
         doneButtn.isEnabled = false
         navigationController?.navigationBar.barTintColor = UIColor.white
         tableView.sectionFooterHeight = 50
@@ -40,14 +44,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.register(UINib(nibName: "AddPhoneTableViewCell", bundle: nil), forCellReuseIdentifier: "AddPhoneTableViewCell")
         tableView.register(UINib(nibName: "AddAddressTableViewCell", bundle: nil), forCellReuseIdentifier: "AddAddressTableViewCell")
         
-        sections = [category(sectionName: "TextFields", items: placeHolderForTxtF, dataToPrint: ["ok"]), category(sectionName: "Phone", items: addPhone, dataToPrint: phoneNumberOf),category(sectionName: "Email", items: addEmail, dataToPrint: emailIdOf), category(sectionName: "Address", items: addAddress, dataToPrint: addressOf)]
+        sections = [category(sectionName: "Phone", items: addPhone, dataToPrint: phoneNumberOf),category(sectionName: "Email", items: addEmail, dataToPrint: emailIdOf), category(sectionName: "Address", items: addAddress, dataToPrint: addressOf)]
         
+        headerViewS1.backgroundColor = UIColor.init(red: 242/255.0, green: 242/255.0, blue: 247/255.0, alpha: 2.0)
+        
+        //category(sectionName: "TextFields", items: placeHolderForTxtF, dataToPrint: ["ok"]),
 //        sectionsToprint = [buttonCategories(index: "Add Phone", dataToPrint: phoneNumberOf),buttonCategories(index: "Add Email", dataToPrint: addEmail), buttonCategories(index: "Add Address", dataToPrint: addAddress)]
         
-        tableView.isEditing = true
         
     }
 
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerV = UIView()
         footerV.backgroundColor = UIColor.init(red: 242/255.0, green: 242/255.0, blue: 247/255.0, alpha: 2.0)
@@ -65,13 +72,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 0 {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TxtFTableViewCell
-        cell?.txtField.tag = indexPath.row
-            cell?.txtField.placeholder = sections[indexPath.section].items[indexPath.row]
-            
-                   return cell!
-        }
+//        if indexPath.section == 0 {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TxtFTableViewCell
+//        cell?.txtField.tag = indexPath.row
+//            cell?.txtField.placeholder = sections[indexPath.section].items[indexPath.row]
+//
+//                   return cell!
+//        }
         
         if indexPath.row == sections[indexPath.section].items.count - 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddTableViewCell", for: indexPath) as? AddTableViewCell
@@ -80,14 +87,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
        
         
-        else if indexPath.section == 3{
+        else if indexPath.section == 2{
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddAddressTableViewCell", for: indexPath) as? AddAddressTableViewCell
             cell?.countryTap = {
                 let newVC = self.storyboard?.instantiateViewController(withIdentifier: "CountryViewController") as? CountryViewController
                 let navigationController = UINavigationController(rootViewController: newVC!)
                 newVC?.delegate = self
                 newVC?.index = indexPath
-                cell?.addressOfButtn.setTitle(self.checkmark, for: .normal)
+                //cell?.addressOfButtn.setTitle(self.checkmark, for: .normal)
                 self.present(navigationController, animated: true, completion: nil)
             }
             cell?.tapblock = {
@@ -126,10 +133,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell?.phoneTxtF.placeholder = sections[indexPath.section].sectionName
             cell?.tapBlock = {
                 let newvc = self.storyboard?.instantiateViewController(withIdentifier: "AddPhoneViewController") as? AddPhoneViewController
-                if indexPath.section == 1{
+                if indexPath.section == 0{
                     newvc?.firstSection = phoneNumberOf
                 }
-                else if indexPath.section == 2{
+                else if indexPath.section == 1{
                     newvc?.firstSection = emailIdOf
                 }
                 
@@ -141,7 +148,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     sections[indexPath.section].dataToPrint.remove(at: indexPath.row)
                     sections[indexPath.section].dataToPrint.insert(passDataArray["name"] as! String, at: indexPath.row)
                 cell?.selectPhoneButtn.setTitle(passDataArray["name"] as? String, for: .normal)
-                    print("!!!!!!!!!!!!!!",passDataArray["name"]!)
                     
                 }
                 //cell?.selectPhoneButtn.setTitle(self.checkmark, for: .normal)
@@ -216,17 +222,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if indexPath.section == 0 {
-            return .none
-        }
-        else{
             if indexPath.row == sections[indexPath.section].items.count - 1{
                 return .insert
             }
             else{
                 return .delete
             }
-        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -268,62 +269,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //
 //    }
 
-    
-    
-//    @objc func phonePlace(){
-////        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//               let newvc = self.storyboard?.instantiateViewController(withIdentifier: "AddPhoneViewController") as? AddPhoneViewController
-//
-//              let navController = UINavigationController(rootViewController: newvc!)
-//               self.present(navController, animated:true, completion: nil)
-//    }
-    
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)  {
-//
-//        addPhone.insert("add Phone \(indexPath.row+1)", at: addPhone.count-1)
-//        tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .bottom)
-//        tableView.reloadData()
-////        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-////        let newvc = self.storyboard?.instantiateViewController(withIdentifier: "AddPhoneViewController") as? AddPhoneViewController
-////        let navController = UINavigationController(rootViewController: newvc!)
-////        self.present(navController, animated:true, completion: nil)
-////        if let newVC = self.storyboard?.instantiateViewController(withIdentifier: "AddPhoneViewController") as? AddPhoneViewController{
-////            //present(newVC, animated: true, completion: nil)
-////            self.navigationController?.pushViewController(newVC, animated: true)
-////        }
-//
-
-//        tableView.deselectRow(at: indexPath, animated: true)
-//
-//    }
-
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == 3{
-//            tableView.rowHeight = UITableView.automaticDimension
-//            tableView.estimatedRowHeight = 270
-//            return 55
-//        }
-//        else{
-//
-//            return 55
-//        }
-//    }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if  indexPath.section == 3{
-//            if indexPath.row == indexPath.last {
-//                return 55
-//            }
-//            else{
-//                if indexPath.row == indexPath.first{
-//                    return 200
-//                }
-//            }
-//        }
-//        return 55
-//        //return UITableView.automaticDimension
-//    }
-    
+   
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         for i in txtFields{

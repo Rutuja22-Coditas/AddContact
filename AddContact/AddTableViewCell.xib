@@ -36,7 +36,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="addPhoneButton" destination="zhL-ok-6z7" id="evz-wg-AhY"/>
+                <outlet property="addPhoneButton" destination="zhL-ok-6z7" id="K5Y-eG-bp0"/>
             </connections>
             <point key="canvasLocation" x="369.56521739130437" y="89.732142857142847"/>
         </tableViewCell>

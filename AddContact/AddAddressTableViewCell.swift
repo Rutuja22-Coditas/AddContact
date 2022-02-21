@@ -26,6 +26,7 @@ class AddAddressTableViewCell: UITableViewCell {
   
     var tapblock : (()->Void)?
     var countryTap : (()-> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -17,6 +17,8 @@
 		7E23D65527B8FE630067DB84 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E23D65327B8FE630067DB84 /* AddTableViewCell.swift */; };
 		7E23D65627B8FE630067DB84 /* AddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E23D65427B8FE630067DB84 /* AddTableViewCell.xib */; };
 		7E3C976927BE673D0044F756 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3C976827BE673D0044F756 /* CountryViewController.swift */; };
+		7E89A24127C32098008B085D /* AddCustomLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E89A23F27C32098008B085D /* AddCustomLabelTableViewCell.swift */; };
+		7E89A24227C32098008B085D /* AddCustomLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E89A24027C32098008B085D /* AddCustomLabelTableViewCell.xib */; };
 		7EA89C0827BB5974000127E5 /* AddPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA89C0727BB5974000127E5 /* AddPhoneViewController.swift */; };
 		7EA973D727BF89170081BE82 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA973D627BF89170081BE82 /* CountryTableViewCell.swift */; };
 		7EB3E02027BA469A00744E7C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB3E01F27BA469900744E7C /* Data.swift */; };
@@ -39,6 +41,8 @@
 		7E23D65327B8FE630067DB84 /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
 		7E23D65427B8FE630067DB84 /* AddTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTableViewCell.xib; sourceTree = "<group>"; };
 		7E3C976827BE673D0044F756 /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
+		7E89A23F27C32098008B085D /* AddCustomLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomLabelTableViewCell.swift; sourceTree = "<group>"; };
+		7E89A24027C32098008B085D /* AddCustomLabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCustomLabelTableViewCell.xib; sourceTree = "<group>"; };
 		7EA89C0727BB5974000127E5 /* AddPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhoneViewController.swift; sourceTree = "<group>"; };
 		7EA973D627BF89170081BE82 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		7EB3E01F27BA469900744E7C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				7EB6483E27BDA75F00363978 /* AddAddressTableViewCell.swift */,
 				7EB6483F27BDA75F00363978 /* AddAddressTableViewCell.xib */,
 				7EA973D627BF89170081BE82 /* CountryTableViewCell.swift */,
+				7E89A23F27C32098008B085D /* AddCustomLabelTableViewCell.swift */,
+				7E89A24027C32098008B085D /* AddCustomLabelTableViewCell.xib */,
 			);
 			path = AddContact;
 			sourceTree = "<group>";
@@ -157,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E89A24227C32098008B085D /* AddCustomLabelTableViewCell.xib in Resources */,
 				7E23D64427B8F4000067DB84 /* LaunchScreen.storyboard in Resources */,
 				7E23D65627B8FE630067DB84 /* AddTableViewCell.xib in Resources */,
 				7E23D64127B8F4000067DB84 /* Assets.xcassets in Resources */,
@@ -178,6 +185,7 @@
 				7EB3E02027BA469A00744E7C /* Data.swift in Sources */,
 				7EA973D727BF89170081BE82 /* CountryTableViewCell.swift in Sources */,
 				7E3C976927BE673D0044F756 /* CountryViewController.swift in Sources */,
+				7E89A24127C32098008B085D /* AddCustomLabelTableViewCell.swift in Sources */,
 				7E23D63C27B8F3FF0067DB84 /* ViewController.swift in Sources */,
 				7E23D63827B8F3FF0067DB84 /* AppDelegate.swift in Sources */,
 				7EB6484027BDA75F00363978 /* AddAddressTableViewCell.swift in Sources */,

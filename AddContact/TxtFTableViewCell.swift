@@ -9,7 +9,9 @@ import UIKit
 
 class TxtFTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var txtFieldView: UIView!
     @IBOutlet weak var txtField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

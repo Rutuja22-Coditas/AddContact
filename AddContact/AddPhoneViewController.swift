@@ -17,6 +17,7 @@ struct categoryForSecondVC {
 //}
 class AddPhoneViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var doneButtn: UIBarButtonItem!
     @IBOutlet weak var addPhoneTableView: UITableView!
     
     var firstSection = [String]()
@@ -27,20 +28,24 @@ class AddPhoneViewController: UIViewController, UITableViewDelegate, UITableView
     var sectionName : String = ""
     typealias completionHandler = ([String:Any])-> Void
     var callBack : completionHandler?
+    var customLbl : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        doneButtn.isEnabled = false
         sectionsInListVC = [categoryForSecondVC(section: 0, arrayToPrint: firstSection), categoryForSecondVC(section: 1, arrayToPrint: secondSection)]
+        
+        addPhoneTableView.register(UINib(nibName: "AddCustomLabelTableViewCell", bundle: nil), forCellReuseIdentifier: "AddCustomLabelTableViewCell")
         
         addPhoneTableView.backgroundColor = UIColor.init(red: 242/255.0, green: 242/255.0, blue: 247/255.0, alpha: 1.0)
         addPhoneTableView.tableFooterView = UIView()
         addPhoneTableView.sectionFooterHeight = 50
         navigationController?.navigationBar.barTintColor = UIColor.init(red: 242/255.0, green: 242/255.0, blue: 247/255.0, alpha: 1.0)
         
-        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = editButton
-        editButton.isEnabled = false
+//        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: nil, action: nil)
+//        navigationItem.rightBarButtonItem = editButton
+//        editButton.isEnabled = false
         
         let cancelButtn = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButtnTapped))
         navigationItem.leftBarButtonItem = cancelButtn
@@ -61,10 +66,15 @@ class AddPhoneViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel!.font = UIFont.systemFont(ofSize: 18)
-        cell?.textLabel?.text = sectionsInListVC[indexPath.section].arrayToPrint[indexPath.row]
+        if indexPath.section == 1 && indexPath.row == 0 {
+            let cell = addPhoneTableView.dequeueReusableCell(withIdentifier: "AddCustomLabelTableViewCell") as? AddCustomLabelTableViewCell
+            cell?.addCustomLbl.text = sectionsInListVC[indexPath.section].arrayToPrint[indexPath.row]
+            return cell!
+        }
         
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+            cell?.textLabel!.font = UIFont.systemFont(ofSize: 18)
+            cell?.textLabel?.text = sectionsInListVC[indexPath.section].arrayToPrint[indexPath.row]
         
         if cell?.textLabel?.text == checkmarkTo{
             cell?.accessoryType = .checkmark
@@ -72,12 +82,7 @@ class AddPhoneViewController: UIViewController, UITableViewDelegate, UITableView
         else{
             cell?.accessoryType = .none
         }
-//        for i in sectionsInListVC[indexPath.section].arrayToPrint{
-//            if i == checkmarkTo{
-//                cell?.accessoryType = .checkmark
-//            }
-//        }
-       
+
         cell?.selectionStyle = .none
         return cell!
     }
@@ -87,31 +92,77 @@ class AddPhoneViewController: UIViewController, UITableViewDelegate, UITableView
         footerV.backgroundColor = UIColor.init(red: 242/255.0, green: 242/255.0, blue: 247/255.0, alpha: 1.0 )
         return footerV
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 1 && indexPath.row == 0{
+            let currentCell = tableView.cellForRow(at: indexPath) as? AddCustomLabelTableViewCell
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+            doneButtn.isEnabled = true
+            currentCell?.addCustomLbl.isHidden = true
+            //currentCell?.txtField.isHidden = false
+            //currentCell?.customLblWidthConstraint.constant = 500
+            currentCell?.txtfieldWidthConstraint.constant = 680
+           
+            currentCell?.tag = indexPath.row
+            
+            customLbl = currentCell?.txtField.text
+            
+        }
+        else{
         let currentCell = tableView.cellForRow(at: indexPath)
-        print("selectedRowIS", sectionsInListVC[indexPath.section].arrayToPrint[indexPath.row])
-        self.dismiss(animated: true, completion: nil)
+            currentCell?.accessoryType = .checkmark
 
+        self.dismiss(animated: true, completion: nil)
+        }
         //currentCell?.accessoryType = .checkmark
         //tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         let passDataArray = ["name": sectionsInListVC[indexPath.section].arrayToPrint[indexPath.row]] as [String : String]
-        print("passdata",passDataArray)
         guard let completionBlk = self.callBack else {
             return
         }
         completionBlk(passDataArray)
-        currentCell?.accessoryType = .checkmark
-
-        //delegate?.setCheckMark(changeTextOf: sectionsInListVC[indexPath.section].arrayToPrint[indexPath.row])
-//        let doneButtn = UIBarButtonItem(title: "Done", style: .plain, target: nil, action: nil)
-//        addPhoneTableView.deselectRow(at: indexPath, animated: true)
-//        let selectedCell = addPhoneTableView.cellForRow(at: indexPath)
-//        if selectedCell?.textLabel?.text == "Add Custom Label"{
-//            selectedCell?.isEditing = true
-//            navigationItem.rightBarButtonItem = doneButtn
-//        }
+    
         
     }
+    
+    
+//    @objc func doneButtnClicked(sender:UIBarButtonItem){
+//        addPhoneTableView.isEditing = !addPhoneTableView.isEditing
+//        sender.title = (addPhoneTableView.isEditing) ? "Done":"Edit"
+//        sectionsInListVC[1].arrayToPrint.append(customLbl!)
+//        print(sectionsInListVC[1].arrayToPrint.append(customLbl!))
+//
+//        // addPhoneTableView.reloadData()
+//        self.dismiss(animated: true, completion: nil)
+//    }
+   
+    @IBAction func doneButtnClicked(_ sender: UIBarButtonItem) {
+        let currentCell = addPhoneTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? AddCustomLabelTableViewCell
+        //print(currentCell?.txtField.text!)
+        addPhoneTableView.isEditing = !addPhoneTableView.isEditing
+        sender.title = (addPhoneTableView.isEditing) ? "Done":"Edit"
+        if customLbl != nil{
+            DispatchQueue.main.async {
+                self.sectionsInListVC[1].arrayToPrint.append((currentCell?.txtField.text!)!)
+                self.addPhoneTableView.insertRows(at: [IndexPath(row: self.secondSection.count - 1, section: 1)], with: .automatic)
+                
+                let passDataArray = ["name": self.sectionsInListVC[1].arrayToPrint[self.secondSection.count - 1]] as [String : String]
+                guard let completionBlk = self.callBack else {
+                    return
+                }
+                completionBlk(passDataArray)
+                //print(sectionsInListVC)
+            }
+            
+        }
+        //print("!!!",sectionsInListVC[1].arrayToPrint.append(customLbl!))
+        
+        // addPhoneTableView.reloadData()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = .none
     }
